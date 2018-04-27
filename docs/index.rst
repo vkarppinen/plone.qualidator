@@ -1,0 +1,3 @@
+================plone.qualidator
+================
+User documentation
