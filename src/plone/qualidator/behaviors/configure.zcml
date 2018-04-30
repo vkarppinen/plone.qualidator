@@ -9,4 +9,10 @@
       provides=".qualidator.IQualidatable"
       />
 
+  <subscriber
+      for=".qualidator.IQualidatable zope.lifecycleevent.IObjectModifiedEvent"
+      handler=".qualidator.handle_redirect"
+      />
+
+
 </configure>
