@@ -6,12 +6,12 @@
   <plone:behavior
       title="Content qualidation"
       description="Adds content qualidation behaviour to dexterity types."
-      provides=".qualidator.IQualidatable"
+      provides=".redirector.IQualidatable"
       />
 
   <subscriber
-      for=".qualidator.IQualidatable zope.lifecycleevent.IObjectModifiedEvent"
-      handler=".qualidator.handle_redirect"
+      for=".redirector.IQualidatable zope.lifecycleevent.IObjectModifiedEvent"
+      handler=".redirector.handle_redirect"
       />
 
 
