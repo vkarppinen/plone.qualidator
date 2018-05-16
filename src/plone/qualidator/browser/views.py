@@ -1,5 +1,5 @@
 from Products.Five.browser import BrowserView
-from plone.qualidator.validators.validator import validate_core
+from plone.qualidator.validators.validator import validate_dublin_core
 
 
 class QualidationView(BrowserView):
@@ -7,9 +7,11 @@ class QualidationView(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
-        self.categories = {
-            'core': dict(results=[], validator=validate_core),
-        }
+        self.categories = [
+            dict(name='Dublin core',
+                 results=[],
+                 validator=validate_dublin_core),
+        ]
 
     def render(self):
         return self.index()
@@ -22,6 +24,8 @@ class QualidationView(BrowserView):
         return u'Content quality overview for: {}'.format(self.context.title)
 
     def handle_validation(self):
-        for key in self.categories:
-            self.categories[key]['results'] = \
-                self.categories[key]['validator'](self.context)
+        for cat in self.categories:
+            cat['results'] = cat['validator'](self.context)
+
+    def categories(self):
+        return self.categories

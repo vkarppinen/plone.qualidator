@@ -18,7 +18,17 @@
 
     <metal:block fill-slot="content-core">
 
-      <pre tal:content="view/categories"></pre>
+      <section class="validation-category" tal:repeat="category view/categories">
+        <h2>${category/name}</h2>
+        <tal:repeat repeat="result category/results">
+          <div class="category-result" tal:condition="result/errors">
+            <header>${result/name}</header>
+            <ul class="errors" tal:repeat="error result/errors">
+              <li class="error">${error}</li>
+            </ul>
+          </div>
+        </tal:repeat>
+      </section>
 
     </metal:block>
 
