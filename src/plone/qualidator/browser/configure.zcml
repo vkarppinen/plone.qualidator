@@ -18,4 +18,12 @@
       directory="static"
       />
 
+  <browser:page
+          for="*"
+          name="content_qa"
+          permission="zope2.Public"
+          class=".views.QualidationView"
+          template="templates/content_qa.pt"
+          />
+
 </configure>

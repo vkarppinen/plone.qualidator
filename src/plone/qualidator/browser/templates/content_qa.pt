@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master">
+
+
+    <metal:title fill-slot="content-title">
+      <h1 id="documentFirstHeading"
+          tal:content="view/title" />
+    </metal:title>
+
+    <metal:description fill-slot="content-description">
+      <div class="documentDescription">
+        See content quality considerations below.
+      </div>
+    </metal:description>
+
+    <metal:block fill-slot="content-core">
+
+      <pre tal:content="view/categories"></pre>
+
+    </metal:block>
+
+</html>
